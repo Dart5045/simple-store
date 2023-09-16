@@ -7,11 +7,6 @@
 		<module>common</module>
 		<module>infrastructure</module>
 		<module>store-service</module>
-		<module>store-service/store-application</module>
-		<module>store-service/store-container</module>
-		<module>store-service/store-dataaccess</module>
-		<module>store-service/store-domain</module>
-		<module>store-service/store-messaging</module>
 	</modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -26,6 +21,7 @@
 	<description>Simple Store</description>
 	<properties>
 		<java.version>17</java.version>
+		<project.version>1.0-SNAPSHOT</project.version>
 		<maven-compiler-plugin.version>3.10.1</maven-compiler-plugin.version>
 		<mockito.version>4.8.1</mockito.version>
 		<spring.boot.dependencies.version>3.1.1</spring.boot.dependencies.version>
@@ -43,19 +39,56 @@
 	<dependencyManagement>
 		<dependencies>
 
-		<!--Spring boot dependencies-->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-dependencies</artifactId>
-			<version>${spring.boot.dependencies.version}</version>
-			<scope>import</scope>
-			<type>pom</type>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-logging</artifactId>
-			<version>3.1.1</version>
-		</dependency>
+			<!--Spring boot dependencies-->
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-dependencies</artifactId>
+				<version>${spring.boot.dependencies.version}</version>
+				<scope>import</scope>
+				<type>pom</type>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-logging</artifactId>
+				<version>3.1.1</version>
+			</dependency>
+
+			<!--Store dependencies-->
+			<dependency>
+				<groupId>com.inditex</groupId>
+				<artifactId>store-domain-core</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.inditex</groupId>
+				<artifactId>store-dataaccess</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.inditex</groupId>
+				<artifactId>common-domain</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.inditex</groupId>
+				<artifactId>store-application</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.inditex</groupId>
+				<artifactId>common-domain</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.inditex</groupId>
+				<artifactId>store-application-service</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.inditex</groupId>
+				<artifactId>common-application</artifactId>
+				<version>${project.version}</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
