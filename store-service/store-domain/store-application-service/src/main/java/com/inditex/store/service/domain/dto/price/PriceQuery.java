@@ -14,7 +14,6 @@ public class PriceQuery {
     @NotNull
     private final LocalDateTime dateRequest;
 
-    // Date Request should not be null or empty
     @NotNull
     private final Long productId;
 
