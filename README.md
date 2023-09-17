@@ -4,15 +4,17 @@
 
 ## Índice
 <!-- TOC -->
-* [Simple-Store](#simple-store)
-  * [Enunciado](#enunciado)
-  * [Campos:](#campos-)
-  * [Se pide:](#se-pide-)
-* [Domain Driven Design o DDD](#domain-driven-design-o-ddd)
-* [Aquitectura hexagonal](#aquitectura-hexagonal)
-* [Gráfico de dependencias](#grfico-de-dependencias)
-* [Dockerización](#dockerizacin)
-* [Levantar el servidor](#levantar-el-servidor)
+- [Simple-Store](#simple-store)
+  - [Índice](#índice)
+  - [Enunciado](#enunciado)
+  - [Campos:](#campos)
+  - [Se pide:](#se-pide)
+- [Domain Driven Design o DDD](#domain-driven-design-o-ddd)
+- [Aquitectura hexagonal](#aquitectura-hexagonal)
+- [Gráfico de dependencias](#gráfico-de-dependencias)
+- [Dockerización](#dockerización)
+- [Levantar el servidor](#levantar-el-servidor)
+  - [Postman](#postman)
 <!-- TOC -->
 
 ## Enunciado
@@ -89,3 +91,20 @@ O, directamente con Maven:
 ```
 
 Se usa elementos en preview de Java 17, por lo que es posible que tengamos que establecer la variable de entorno `JAVA_TOOL_OPTIONS=--enable-preview`.
+
+## Postman
+Para probar nuestra API podemos usar Postman.
+
+- Cambiamos el verbo a POST
+- Url petición : http://localhost:8080/api/v1/store
+- Body:
+Cuerpo
+```json
+{
+  "productId": 35455,
+  "brandId" : 1,
+  "dateRequest" : "2020-06-14T21:00:00.000"
+}
+```
+
+.![Endpoint](./docs/images/endpoint.JPG)
