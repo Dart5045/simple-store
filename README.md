@@ -4,17 +4,17 @@
 
 ## Índice
 <!-- TOC -->
-- [Simple-Store](#simple-store)
-  - [Índice](#índice)
-  - [Enunciado](#enunciado)
-  - [Campos:](#campos)
-  - [Se pide:](#se-pide)
-- [Domain Driven Design o DDD](#domain-driven-design-o-ddd)
-- [Aquitectura hexagonal](#aquitectura-hexagonal)
-- [Gráfico de dependencias](#gráfico-de-dependencias)
-- [Dockerización](#dockerización)
-- [Levantar el servidor](#levantar-el-servidor)
-  - [Postman](#postman)
+* [Simple-Store](#simple-store)
+  * [Índice](#ndice)
+  * [Enunciado](#enunciado)
+  * [Campos:](#campos-)
+  * [Se pide:](#se-pide-)
+* [Domain Driven Design o DDD](#domain-driven-design-o-ddd)
+* [Aquitectura hexagonal](#aquitectura-hexagonal)
+* [Gráfico de dependencias](#grfico-de-dependencias)
+* [Dockerización](#dockerizacin)
+* [Levantar el servidor](#levantar-el-servidor)
+* [Postman](#postman)
 <!-- TOC -->
 
 ## Enunciado
@@ -92,7 +92,7 @@ O, directamente con Maven:
 
 Se usa elementos en preview de Java 17, por lo que es posible que tengamos que establecer la variable de entorno `JAVA_TOOL_OPTIONS=--enable-preview`.
 
-## Postman
+# Postman
 Para probar nuestra API podemos usar Postman.
 
 - Cambiamos el verbo a POST
