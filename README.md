@@ -2,14 +2,25 @@
 
 ![Java version](https://img.shields.io/badge/JDK-17%20preview-blue)
 
+## Índice
+<!-- TOC -->
+* [Simple-Store](#simple-store)
+  * [Enunciado](#enunciado)
+  * [Campos:](#campos-)
+  * [Se pide:](#se-pide-)
+* [Domain Driven Design o DDD](#domain-driven-design-o-ddd)
+* [Aquitectura hexagonal](#aquitectura-hexagonal)
+* [Gráfico de dependencias](#grfico-de-dependencias)
+* [Dockerización](#dockerizacin)
+* [Levantar el servidor](#levantar-el-servidor)
+<!-- TOC -->
+
 ## Enunciado
 En la base de datos de comercio electrónico de la compañía disponemos de la tabla PRICES que refleja el precio final (pvp) y 
 la tarifa que aplica a un producto de una cadena entre unas fechas determinadas. A continuación se muestra un ejemplo de la tabla con los campos relevantes:
 
 PRICES
--------
-
-  
+ 
 | BRAND_ID | START_DATE           | END_DATE            | PRICE_LIST | PRODUCT_ID | PRIORITY | PRICE  | CURR |
 |----------|----------------------|---------------------|------------|------------|----------|--------|------|
 | 1        | 2020-06-14-00.00.00  | 2020-12-31-23.59.59 | 1          | 35455      | 0        | 35.50  | EUR  |
