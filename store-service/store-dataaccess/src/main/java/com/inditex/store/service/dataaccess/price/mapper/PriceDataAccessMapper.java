@@ -16,7 +16,9 @@ public class PriceDataAccessMapper {
                 .id(new PriceId(priceEntity.getId()))
                 .priceList(new PriceList(priceEntity.getPriceList()))
                 .productId(new ProductId(priceEntity.getProductId()))
+                .brandId(new BrandId(priceEntity.getBrandId()))
                 .price(new Money(priceEntity.getPrice()))
+                .priority(priceEntity.getPriority())
                 .build();
     }
 }

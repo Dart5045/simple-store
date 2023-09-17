@@ -1,6 +1,5 @@
 package com.inditex.store.service.domain.dto.price;
 
-import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -20,5 +19,5 @@ public class PriceQuery {
     private final Long productId;
 
     @NotNull
-    private final Long priceList;
+    private final Integer brandId;
 }

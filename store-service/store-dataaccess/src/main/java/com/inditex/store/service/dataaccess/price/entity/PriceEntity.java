@@ -24,5 +24,5 @@ public class PriceEntity {
     private LocalDateTime endDate;
     private Long priceList;
     private BigDecimal price;
-    private int priority;
+    private Integer priority;
 }

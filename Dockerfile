@@ -16,5 +16,4 @@ FROM openjdk:17-alpine
 WORKDIR /opt/app
 
 COPY --from=build /opt/app/store-service/store-container/target/store-container-0.0.1-SNAPSHOT.jar /opt/app
-EXPOSE 8080
 CMD ["java", "-jar", "--enable-preview", "/opt/app/store-container-0.0.1-SNAPSHOT.jar"]

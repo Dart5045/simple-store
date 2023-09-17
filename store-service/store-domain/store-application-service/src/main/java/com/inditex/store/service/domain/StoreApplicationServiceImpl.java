@@ -2,6 +2,7 @@ package com.inditex.store.service.domain;
 
 import com.inditex.domain.entity.Price;
 import com.inditex.domain.exception.PriceNotFoundException;
+import com.inditex.domain.valueobject.BrandId;
 import com.inditex.domain.valueobject.PriceList;
 import com.inditex.domain.valueobject.ProductId;
 import com.inditex.store.service.domain.dto.price.PriceQuery;
@@ -33,18 +34,19 @@ public class StoreApplicationServiceImpl implements StoreApplicationService {
 
     @Override
     public PriceResponse getPrice(PriceQuery priceQuery) {
-
         List<Price> priceList =  priceRepository.findPrices(
                 new ProductId(priceQuery.getProductId()),
-                new PriceList(priceQuery.getPriceList()),
+                new BrandId(priceQuery.getBrandId()),
                 priceQuery.getDateRequest());
         if (priceList.isEmpty()) {
             log.warn("Could not find price with product id: {}", priceQuery.getProductId());
             throw new PriceNotFoundException("Could not find price with product id: " +
                     priceQuery.getProductId());
         }
-
-        Price price = priceList.get(0);
-        return priceDataMapper.priceToPriceResponse(price);
+        Price reducePrice = priceList
+                .stream()
+                .reduce(Price::compare)
+                .orElse(priceList.get(0));
+        return priceDataMapper.priceToPriceResponse(reducePrice, priceQuery.getDateRequest());
     }
 }

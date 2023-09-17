@@ -1,5 +1,6 @@
 package com.inditex.store.service.domain.dto.price;
 
+import com.inditex.domain.valueobject.PriceList;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -17,8 +18,14 @@ public class PriceResponse {
     private final Long productId;
 
     @NotNull
-    private final Long priceList;
+    private final Integer brandId;
 
     @NotNull
     private BigDecimal finalPrice;
+
+    @NotNull
+    private final LocalDateTime dateRequest;
+
+    @NotNull
+    private final Long priceList;
 }

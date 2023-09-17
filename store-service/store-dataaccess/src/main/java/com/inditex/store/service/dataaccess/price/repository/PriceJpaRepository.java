@@ -14,9 +14,9 @@ import java.util.UUID;
 
 @Repository
 public interface PriceJpaRepository extends JpaRepository<PriceEntity, Double> {
-    @Query(value = "FROM PriceEntity e WHERE productId= :productId AND priceList= :priceList AND startDate <= :dateRequest AND endDate >= :dateRequest")
+    @Query(value = "FROM PriceEntity e WHERE productId= :productId AND brandId= :brandId AND startDate <= :dateRequest AND endDate >= :dateRequest")
     List<PriceEntity> findPrices(
             Long productId,
-            Long priceList,
+            Integer brandId,
             @Param("dateRequest") LocalDateTime dateRequest);
 }

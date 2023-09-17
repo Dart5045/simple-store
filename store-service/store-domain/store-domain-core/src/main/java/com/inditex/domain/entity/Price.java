@@ -10,11 +10,18 @@ public class Price extends AggregateRoot<PriceId>{
     private final ProductId productId;
     private final LocalDateTime startDate;
     private final LocalDateTime endDate;
-    private final int priority;
+    private final Integer priority;
     private final PriceList priceList;
 
     public BrandId getBrandId() {
         return brandId;
+    }
+
+    public Price compare(Price price2) {
+        if(price2.getPriority().compareTo(this.getPriority())>0){
+            return price2;
+        }
+        return this;
     }
 
     public Money getPrice() {
@@ -37,7 +44,7 @@ public class Price extends AggregateRoot<PriceId>{
         return endDate;
     }
 
-    public int getPriority() {
+    public Integer getPriority() {
         return priority;
     }
 
@@ -70,7 +77,7 @@ public class Price extends AggregateRoot<PriceId>{
         private ProductId productId;
         private LocalDateTime startDate;
         private LocalDateTime endDate;
-        private int priority;
+        private Integer priority;
         private PriceList priceList;
 
         private Builder() {
@@ -111,7 +118,7 @@ public class Price extends AggregateRoot<PriceId>{
             return this;
         }
 
-        public Builder priority(int val) {
+        public Builder priority(Integer val) {
             priority = val;
             return this;
         }
