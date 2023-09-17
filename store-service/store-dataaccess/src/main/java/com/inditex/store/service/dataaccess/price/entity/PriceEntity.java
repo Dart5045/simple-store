@@ -5,6 +5,9 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.*;
 
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
 @Entity
 @Getter
 @Setter
@@ -14,7 +17,12 @@ import lombok.*;
 @Table(name = "prices")
 public class PriceEntity {
     @Id
-    private Double id;
-    private String priceName;
-    private Double productId;
+    private Long id;
+    private Integer brandId;
+    private Long productId;
+    private LocalDateTime startDate;
+    private LocalDateTime endDate;
+    private Long priceList;
+    private BigDecimal price;
+    private int priority;
 }

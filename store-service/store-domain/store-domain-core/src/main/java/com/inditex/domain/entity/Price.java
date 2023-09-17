@@ -4,14 +4,46 @@ import com.inditex.domain.valueobject.*;
 import java.time.LocalDateTime;
 
 public class Price extends AggregateRoot<PriceId>{
-    private BrandId brandId;
-    private Money price;
-    private Currency curr;
-    private ProductId productId;
-    private LocalDateTime startDate;
-    private LocalDateTime endDate;
-    private int priority;
-    private PriceList priceList;
+    private final BrandId brandId;
+    private final Money price;
+    private final Currency curr;
+    private final ProductId productId;
+    private final LocalDateTime startDate;
+    private final LocalDateTime endDate;
+    private final int priority;
+    private final PriceList priceList;
+
+    public BrandId getBrandId() {
+        return brandId;
+    }
+
+    public Money getPrice() {
+        return price;
+    }
+
+    public Currency getCurr() {
+        return curr;
+    }
+
+    public ProductId getProductId() {
+        return productId;
+    }
+
+    public LocalDateTime getStartDate() {
+        return startDate;
+    }
+
+    public LocalDateTime getEndDate() {
+        return endDate;
+    }
+
+    public int getPriority() {
+        return priority;
+    }
+
+    public PriceList getPriceList() {
+        return priceList;
+    }
 
     private Price(Builder builder) {
         super.setId(builder.priceId);

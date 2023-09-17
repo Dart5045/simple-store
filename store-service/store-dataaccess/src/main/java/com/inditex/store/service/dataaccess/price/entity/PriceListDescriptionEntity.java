@@ -1,11 +1,9 @@
-package com.inditex.store.service.dataaccess.brand.entity;
+package com.inditex.store.service.dataaccess.price.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.*;
-
-import java.util.UUID;
 
 @Entity
 @Getter
@@ -13,9 +11,9 @@ import java.util.UUID;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "brands")
-public class BrandEntity {
+@Table(name = "prices_list_description")
+public class PriceListDescriptionEntity {
     @Id
-    private Integer id;
-    private String brandName;
+    private Double id;
+    private String priceListName;
 }

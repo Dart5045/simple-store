@@ -1,22 +1,24 @@
-package com.inditex.store.service.domain.dto.create;
+package com.inditex.store.service.domain.dto.price;
 
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Getter
 @Builder
 @AllArgsConstructor
-public class PriceQuery {
-    @NotNull
-    private final LocalDateTime dateRequest;
+public class PriceResponse {
 
     @NotNull
-    private final Double productId;
+    private final Long productId;
 
     @NotNull
-    private final Double priceList;
+    private final Long priceList;
+
+    @NotNull
+    private BigDecimal finalPrice;
 }

@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 import java.util.UUID;
 
 @Repository
-public interface BrandJpaRepository extends JpaRepository<BrandEntity, Double> {
+public interface BrandJpaRepository extends JpaRepository<BrandEntity, Integer> {
 }
