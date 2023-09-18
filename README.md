@@ -84,11 +84,6 @@ Una opción es usar Docker:
 docker compose up
 ```
 
-O, directamente con Maven:
-
-```
-./mvnw spring-boot:run
-```
 
 Se usa elementos en preview de Java 17, por lo que es posible que tengamos que establecer la variable de entorno `JAVA_TOOL_OPTIONS=--enable-preview`.
 
