@@ -68,7 +68,7 @@ La arquitectura hexagonal, también conocida como arquitectura de puertos y adap
 
 # Gráfico de dependencias
 - Según la arquitectura implementada, sólo el módulo **store-container** tiene acceso a todos los módulos.
-- La capa de negocio (store-application-service/store-domain-core) no tienen dependencias.
+- La capa de negocio (store-application-service/store-domain-core) no tiene dependencias.
 
 ![SS Dependency Graph](./docs/images/dependency-graph.jpg)
 
