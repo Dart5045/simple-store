@@ -7,6 +7,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
+
 @Slf4j
 @RestController
 @RequestMapping(value = "api/v1/store"   , produces = "application/vnd.api.v1+json")
@@ -17,12 +19,14 @@ public class StoreController {
         this.storeApplicationService = storeApplicationService;
     }
 
-    @PostMapping
+    @GetMapping
     public ResponseEntity<PriceResponse> getPrice(
-            @RequestBody PriceQuery priceQuery)
+            @RequestParam(required = true) Long productId,
+            @RequestParam(required = true) Integer brandId,
+            @RequestParam(required = true) LocalDateTime dateRequest)
     {
-        log.info("Getting Price for product id :{} ",priceQuery.getProductId());
-        PriceResponse priceResponse = storeApplicationService.getPrice(priceQuery);
+        log.info("Getting Price for product id :{} ",productId);
+        PriceResponse priceResponse = storeApplicationService.getPrice(productId, brandId, dateRequest);
         return  ResponseEntity.ok(priceResponse);
     }
 }

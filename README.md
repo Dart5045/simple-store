@@ -90,16 +90,13 @@ Se usa elementos en preview de Java 17, por lo que es posible que tengamos que e
 # Postman
 Para probar nuestra API podemos usar Postman.
 
-- Cambiamos el verbo a POST
+- Cambiamos el verbo a GET
 - Url petición : http://localhost:8080/api/v1/store
-- Body:
-Cuerpo
-```json
-{
+- Query Params:
+```
   "productId": 35455,
   "brandId" : 1,
   "dateRequest" : "2020-06-14T21:00:00.000"
-}
 ```
 
-.![Endpoint](./docs/images/endpoint.JPG)
+.![Endpoint](./docs/images/endpoint2.JPG)

@@ -2,7 +2,6 @@ package com.inditex.store.service.domain;
 
 import com.inditex.domain.entity.Price;
 import com.inditex.domain.valueobject.*;
-import com.inditex.store.service.domain.dto.price.PriceQuery;
 import com.inditex.store.service.domain.dto.price.PriceResponse;
 import com.inditex.store.service.domain.mapper.PriceDataMapper;
 import com.inditex.store.service.domain.ports.input.service.StoreApplicationService;
@@ -31,8 +30,6 @@ public class StoreApplicationServiceTest {
     private StoreApplicationService underTest;
 
     private final PriceDataMapper priceDataMapper = new PriceDataMapper();
-
-    private PriceQuery priceQuery;
 
     private final Long PRODUCT_ID = 35455L;
     private final Integer BRAND_ID = 1;
@@ -96,19 +93,12 @@ public class StoreApplicationServiceTest {
         //Given
         LocalDateTime dateRequest = LocalDateTime.of(2020, 06, 14, 16, 00, 00,00);
         pricesList = List.of(price1);
-        priceQuery = PriceQuery
-                .builder()
-                .productId(PRODUCT_ID)
-                .brandId(1)
-                .dateRequest(dateRequest)
-                .build();
-
 
         //When
         when(priceRepository.findPrices(any(),any(),any())
         ).thenReturn(pricesList);
 
-        PriceResponse price = underTest.getPrice(priceQuery);
+        PriceResponse price = underTest.getPrice(PRODUCT_ID,BRAND_ID,dateRequest);
 
         //Then
         assertEquals(price.getProductId(), PRODUCT_ID);
@@ -123,19 +113,12 @@ public class StoreApplicationServiceTest {
         //Given
         LocalDateTime dateRequest = LocalDateTime.of(2020, 06, 14, 16, 00, 00,00);
         pricesList = List.of(price1,price2);
-        priceQuery = PriceQuery
-                .builder()
-                .productId(PRODUCT_ID)
-                .brandId(1)
-                .dateRequest(dateRequest)
-                .build();
-
 
         //When
         when(priceRepository.findPrices(any(),any(),any())
         ).thenReturn(pricesList);
 
-        PriceResponse price = underTest.getPrice(priceQuery);
+        PriceResponse price = underTest.getPrice(PRODUCT_ID,BRAND_ID,dateRequest);
 
         //Then
         assertEquals(price.getProductId(), PRODUCT_ID);
@@ -150,19 +133,12 @@ public class StoreApplicationServiceTest {
         //Given
         LocalDateTime dateRequest = LocalDateTime.of(2020, 06, 14, 21, 00, 00,00);
         pricesList = List.of(price1);
-        priceQuery = PriceQuery
-                .builder()
-                .productId(PRODUCT_ID)
-                .brandId(1)
-                .dateRequest(dateRequest)
-                .build();
-
 
         //When
         when(priceRepository.findPrices(any(),any(),any())
         ).thenReturn(pricesList);
 
-        PriceResponse price = underTest.getPrice(priceQuery);
+        PriceResponse price = underTest.getPrice(PRODUCT_ID,BRAND_ID,dateRequest);
 
         //Then
         assertEquals(price.getProductId(), PRODUCT_ID);
@@ -177,19 +153,12 @@ public class StoreApplicationServiceTest {
         //Given
         LocalDateTime dateRequest = LocalDateTime.of(2020, 06, 15, 10, 00, 00,00);
         pricesList = List.of(price1, price3);
-        priceQuery = PriceQuery
-                .builder()
-                .productId(PRODUCT_ID)
-                .brandId(BRAND_ID)
-                .dateRequest(dateRequest)
-                .build();
-
 
         //When
         when(priceRepository.findPrices(any(),any(),any())
         ).thenReturn(pricesList);
 
-        PriceResponse price = underTest.getPrice(priceQuery);
+        PriceResponse price = underTest.getPrice(PRODUCT_ID,BRAND_ID,dateRequest);
 
         //Then
         assertEquals(price.getProductId(), PRODUCT_ID);
@@ -204,19 +173,12 @@ public class StoreApplicationServiceTest {
         //Given
         LocalDateTime dateRequest = LocalDateTime.of(2020, 06, 16, 21, 00, 00,00);
         pricesList = List.of(price1, price4);
-        priceQuery = PriceQuery
-                .builder()
-                .productId(PRODUCT_ID)
-                .brandId(BRAND_ID)
-                .dateRequest(dateRequest)
-                .build();
-
 
         //When
         when(priceRepository.findPrices(any(),any(),any())
         ).thenReturn(pricesList);
 
-        PriceResponse price = underTest.getPrice(priceQuery);
+        PriceResponse price = underTest.getPrice(PRODUCT_ID,BRAND_ID,dateRequest);
 
         //Then
         assertEquals(price.getProductId(), PRODUCT_ID);

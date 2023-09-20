@@ -14,6 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -32,21 +33,22 @@ public class StoreApplicationServiceImpl implements StoreApplicationService {
         this.priceRepository = priceRepository;
     }
 
+
     @Override
-    public PriceResponse getPrice(PriceQuery priceQuery) {
+    public PriceResponse getPrice(Long productId, Integer brandId, LocalDateTime dateRequest) {
         List<Price> priceList =  priceRepository.findPrices(
-                new ProductId(priceQuery.getProductId()),
-                new BrandId(priceQuery.getBrandId()),
-                priceQuery.getDateRequest());
+                new ProductId(productId),
+                new BrandId(brandId),
+                dateRequest);
         if (priceList.isEmpty()) {
-            log.warn("Could not find price with product id: {}", priceQuery.getProductId());
+            log.warn("Could not find price with product id: {}", productId);
             throw new PriceNotFoundException("Could not find price with product id: " +
-                    priceQuery.getProductId());
+                    productId);
         }
         Price reducePrice = priceList
                 .stream()
                 .reduce(Price::compare)
                 .orElse(priceList.get(0));
-        return priceDataMapper.priceToPriceResponse(reducePrice, priceQuery.getDateRequest());
+        return priceDataMapper.priceToPriceResponse(reducePrice, dateRequest);
     }
 }

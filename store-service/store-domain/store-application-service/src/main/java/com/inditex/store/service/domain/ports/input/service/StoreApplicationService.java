@@ -5,6 +5,8 @@ import com.inditex.store.service.domain.dto.price.PriceResponse;
 
 import jakarta.validation.Valid;
 
+import java.time.LocalDateTime;
+
 public interface StoreApplicationService {
-    PriceResponse getPrice(@Valid PriceQuery priceQuery);
+    PriceResponse getPrice(Long productId, Integer brandId, LocalDateTime dateRequest);
 }
